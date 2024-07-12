@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,html {
+	background: linear-gradient(-45deg, #ee7752 20%, #e73c7e 40%, #23a6d5 60%, #23d5ab 80%);
+	background-size: 800% 800%;
+	animation: gradient 10s ease infinite;
+	min-height: 100vh;
+	--line-color: #e5e7eb;
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
