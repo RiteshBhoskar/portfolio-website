@@ -2,6 +2,7 @@ import React from "react";
 import appleImg from "@/public/apple.png";
 import mediumLike from "@/public/blog-app.png";
 import brainwave from "@/public/brainwave.png";
+import lightAi from "@/public/light-ai-landingpage.png";
 import { LuGraduationCap } from "react-icons/lu";
 
 export const links = [
@@ -59,6 +60,13 @@ export const links = [
 // ] as const;
 
 export const projectsData = [
+  {
+    title: "Light AI Saas landing page",
+    description: "Landing page for any AI saas. Can be changed according to the needs of the client. ",
+    tags: ["Nextjs", "Typescript", "Framer-motion","TainwindCss", "Vercel"],
+    imageUrl: lightAi,
+    link: "https://light-ai-landingpage.vercel.app/",
+  },
   {
     title: "Apple-Iphone15",
     description:
