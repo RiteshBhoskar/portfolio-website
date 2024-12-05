@@ -1,9 +1,8 @@
-import React from "react";
+
 import appleImg from "@/public/apple.png";
 import mediumLike from "@/public/blog-app.png";
 import brainwave from "@/public/brainwave.png";
 import lightAi from "@/public/light-ai-landingpage.png";
-import { LuGraduationCap } from "react-icons/lu";
 
 export const links = [
   {
@@ -31,33 +30,6 @@ export const links = [
     hash: "#contact",
   },
 ] as const;
-
-// export const experiencesData = [
-//   {
-//     title: "Currently Studying In College",
-//     location: "Pune, MH",
-//     description:
-//       "Currently studying in college. Looking for an internship.",
-//     icon: React.createElement(LuGraduationCap),
-//     date: "2022",
-  // },
-//   {
-//     title: "Front-End Developer",
-//     location: "Orlando, FL",
-//     description:
-//       "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
-//     icon: React.createElement(CgWorkAlt),
-//     date: "2019 - 2021",
-//   },
-//   {
-//     title: "Full-Stack Developer",
-//     location: "Houston, TX",
-//     description:
-//       "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
-//     icon: React.createElement(FaReact),
-//     date: "2021 - present",
-//   },
-// ] as const;
 
 export const projectsData = [
   {

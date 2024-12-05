@@ -33,7 +33,7 @@ const skillNames = [
   },
   {
     name: "Gsap",
-    color: "#0AE448", //0AE448
+    color: "#0AE448", 
   },
   {
     name: "Typescript",

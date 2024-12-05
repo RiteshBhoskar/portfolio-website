@@ -1,5 +1,4 @@
 import React from "react";
-import { FaPaperPlane } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 export default function Contact() {
@@ -42,14 +41,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-
-      {/* <form>
-        <input type="email" />
-        <textarea />
-        <button type='submit'>
-          Submit <FaPaperPlane />
-        </button>
-      </form> */}
     </div>
   );
 }
