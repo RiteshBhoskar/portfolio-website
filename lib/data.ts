@@ -3,6 +3,7 @@ import appleImg from "@/public/apple.png";
 import mediumLike from "@/public/blog-app.png";
 import brainwave from "@/public/brainwave.png";
 import lightAi from "@/public/light-ai-landingpage.png";
+import mediso from "@/public/mediso.png"
 
 export const links = [
   {
@@ -32,6 +33,13 @@ export const links = [
 ] as const;
 
 export const projectsData = [
+  {
+    title: "Mediso",
+    description: "A platform for patients to share concerns, upvote issues, and connect with doctors for personalized support.",
+    tags: ["Nextjs", "Typescript","Postgres", "NextAuth" ,"Prisma" , "Vercel", "Bcrypt"],
+    imageUrl: mediso,
+    link: "https://mediso.vercel.app/",
+  },
   {
     title: "Light AI Saas landing page",
     description: "Landing page for any AI saas. Can be changed according to the needs of the client. ",
