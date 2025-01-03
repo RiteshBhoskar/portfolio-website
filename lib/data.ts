@@ -4,6 +4,7 @@ import mediumLike from "@/public/blog-app.png";
 import brainwave from "@/public/brainwave.png";
 import lightAi from "@/public/light-ai-landingpage.png";
 import mediso from "@/public/mediso.png"
+import blogify from "@/public/blogify.png"
 
 export const links = [
   {
@@ -39,6 +40,13 @@ export const projectsData = [
     tags: ["Nextjs", "Typescript","Postgres", "NextAuth" ,"Prisma" , "Vercel", "Bcrypt"],
     imageUrl: mediso,
     link: "https://mediso.vercel.app/",
+  },
+  {
+    title: "Blogify",
+    description: "Blogify is an intuitive, all-in-one blogging platform designed for writers, creators, and influencers.",
+    tags: ["Nextjs", "Typescript","Postgres", "NextAuth" ,"Prisma" , "Vercel", "Bcrypt"],
+    imageUrl: blogify,
+    link: "https://blogify-five-livid.vercel.app/",
   },
   {
     title: "Light AI Saas landing page",

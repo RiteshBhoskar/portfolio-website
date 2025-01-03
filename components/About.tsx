@@ -34,8 +34,8 @@ export default function AboutMe() {
       <p className="flex justify-center items-center text-2xl py-2 font-lato font-thin">
         Currently Learning
         <Image
-          src="/go.svg"
-          alt="g0-image"
+          src="/rust.png"
+          alt="rust-image"
           height={50}
           width={90}
           className="pl-4"
