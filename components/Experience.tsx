@@ -18,7 +18,7 @@ export default function Experience() {
             <LuGraduationCap />
           </div>
           <p className="text-2xl text-white font-lato flex justify-center">
-            Currently Studying in College , Looking for an Intership.
+            Currently Studying in College , Looking for an Internship.
           </p>
         </div>
         <div className="flex justify-center">
