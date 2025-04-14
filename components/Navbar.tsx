@@ -8,12 +8,11 @@ import { Circle } from "rc-progress";
 import NumberFlow from "@number-flow/react";
 import { useActiveSectionContext } from "@/context/active-section-context";
 
-export default function Header() {
-  const { activeSection , setActiveSection } = useActiveSectionContext();
+export default function Navbar() {
+  const { activeSection , setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
   const [isNavOpen , setIsNavOpen] = useState(false);
   const [scrollPercentage, setScrollPercentage] = useState(0);
-  const [selected, setSelected] = useState("Nav");
-  const sectionsRef = useRef<HTMLDivElement[]>([]);
+  const [selected, setSelected] = useState("Home");
 
   useEffect(() => {
     const updateScroll = () => {
@@ -29,31 +28,9 @@ export default function Header() {
     return () => window.removeEventListener("scroll", updateScroll);
   }, []);
 
-
-
-  // useEffect(() => {
-  //   // IntersectionObserver to detect active section
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       for (const entry of entries) {
-  //         if (entry.isIntersecting) {
-  //           const sectionName = entry.target.getAttribute("data-section");
-  //           if (sectionName) {
-  //             setActiveSection(sectionName);
-  //             setSelected(sectionName); // Dynamically change the Nav text
-  //           }
-  //         }
-  //       }
-  //     },
-  //     { threshold: 0.6 } // Adjust this threshold as needed
-  //   );
-
-  //   sectionsRef.current.forEach((section) => observer.observe(section));
-
-  //   return () => {
-  //     sectionsRef.current.forEach((section) => observer.unobserve(section));
-  //   };
-  // }, []);
+  useEffect(() => {
+    setSelected(activeSection);
+  }, [activeSection])
 
   return (
     <header className="z-[999] relative">
@@ -81,7 +58,10 @@ export default function Header() {
                   { "text-white": activeSection === link.name }
                 )}
                 href={link.hash}
-                onClick={() => setActiveSection(link.name)}
+                onClick={() => {
+                  setTimeOfLastClick(Date.now());
+                  setActiveSection(link.name)}
+                }
               >
                 {link.name}
 
@@ -127,12 +107,19 @@ export default function Header() {
               />
             </div>
 
-            <header
-              className="flex px-3 font-mono text-lg items-center justify-between cursor-pointer flex-shrink-0"
-              onClick={() => setIsNavOpen(!isNavOpen)}
-            >
-              <h1 className="font-thin text-white text-lg flex justify-center">{selected}</h1>
-            </header>
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={selected}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                onClick={() => setIsNavOpen(!isNavOpen)}
+                className="font-thin font-mono text-lg text-white cursor-pointer flex justify-center"
+              >
+                {selected}
+              </motion.span>
+            </AnimatePresence>
 
             <div className="font-medium text-white flex justify-center items-center flex-shrink-0 overflow-clip"
             style={{ flexBasis: "2.5rem", textAlign: "right" }}>

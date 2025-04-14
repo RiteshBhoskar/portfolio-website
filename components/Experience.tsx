@@ -1,20 +1,12 @@
 "use client"
-import React, { useEffect } from "react";
+import React from "react";
 import { LuGraduationCap } from "react-icons/lu";
 import MiniSectionDivider from "./MiniSectionDivider";
 import { LoaderPinwheel } from "lucide-react";
-import { useInView } from "react-intersection-observer";
-import { useActiveSectionContext } from "@/context/active-section-context";
+import { useSectionInView } from "@/lib/hook";
 
 export default function Experience() {
-  const { ref, inView } = useInView();
-  const { setActiveSection } = useActiveSectionContext();
-
-  useEffect(() => {
-    if(inView){
-      setActiveSection("Experience");
-    }
-  }, [inView, setActiveSection])
+  const { ref } = useSectionInView("Experience");
   return (
     <section ref={ref} id="experience" className="flex py-5 justify-center items-center">
       <div>

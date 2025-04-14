@@ -1,22 +1,14 @@
 "use client"
 import { projectsData } from "@/lib/data";
-import React, { useEffect } from "react";
+import React from "react";
 import Project from "./project";
-import { useInView } from "react-intersection-observer";
-import { useActiveSectionContext } from "@/context/active-section-context";
+import { useSectionInView } from "@/lib/hook";
 
 export default function Projects() {
-    const { ref, inView } = useInView();
-    const { setActiveSection } = useActiveSectionContext();
-  
-    useEffect(() => {
-      if(inView){
-        setActiveSection("Projects");
-      }
-    }, [inView, setActiveSection])
+  const { ref } = useSectionInView("Projects");
   
   return (
-    <section ref={ref} className="flex flex-col items-center justify-center scroll-mt-28" id="projects">
+    <section ref={ref} className="flex flex-col items-center justify-center" id="projects">
       <h2 className="text-5xl font-lato py-5 text-white">
         My Projects
       </h2>

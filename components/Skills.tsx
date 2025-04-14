@@ -1,12 +1,11 @@
 "use client";
-import React, { useLayoutEffect, useEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { MdCircle } from "react-icons/md";
 import { skillsData } from "@/lib/data";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { useActiveSectionContext } from "@/context/active-section-context";
+import { useSectionInView } from "@/lib/hook";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -44,15 +43,8 @@ const skillNames = [
 ];
 
 export default function Skills() {
-      const { ref, inView } = useInView();
-      const { setActiveSection } = useActiveSectionContext();
-    
-      useEffect(() => {
-        if(inView){
-          setActiveSection("Skills");
-        }
-      }, [inView, setActiveSection])
-      const component = useRef<HTMLElement | null>(null);
+  const { ref } = useSectionInView("Skills");
+  const component = useRef<HTMLElement | null>(null);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {

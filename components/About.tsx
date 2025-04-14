@@ -1,22 +1,11 @@
 "use client";
-import { useActiveSectionContext } from "@/context/active-section-context";
+import { useSectionInView } from "@/lib/hook";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import React, { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
+import React from "react";
 
 export default function AboutMe() {
-  const { ref, inView } = useInView({
-    threshold: 0.75,
-  });
-  const { setActiveSection } = useActiveSectionContext();
-
-  useEffect(() => {
-    if(inView){
-      setActiveSection("About");
-    }
-  }, [inView, setActiveSection])
-
+  const { ref } = useSectionInView("About");
   return (
     <motion.section
       ref={ref}
