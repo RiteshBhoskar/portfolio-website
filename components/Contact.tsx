@@ -1,9 +1,21 @@
-import React from "react";
+"use client"
+import { useActiveSectionContext } from "@/context/active-section-context";
+import React, { useEffect } from "react";
 import { FaXTwitter } from "react-icons/fa6";
+import { useInView } from "react-intersection-observer";
 
 export default function Contact() {
+      const { ref, inView } = useInView();
+      const { setActiveSection } = useActiveSectionContext();
+    
+      useEffect(() => {
+        if(inView){
+          setActiveSection("Contact");
+        }
+      }, [inView, setActiveSection])
   return (
-    <div
+    <section
+      ref={ref}
       id="contact"
       className="py-5 flex flex-col justify-center scroll-mt-28"
     >
@@ -41,6 +53,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

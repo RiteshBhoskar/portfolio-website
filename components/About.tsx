@@ -1,11 +1,25 @@
 "use client";
+import { useActiveSectionContext } from "@/context/active-section-context";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 export default function AboutMe() {
+  const { ref, inView } = useInView({
+    threshold: 0.75,
+  });
+  const { setActiveSection } = useActiveSectionContext();
+
+  useEffect(() => {
+    if(inView){
+      setActiveSection("About");
+    }
+  }, [inView, setActiveSection])
+
   return (
     <motion.section
+      ref={ref}
       className="mt-12 flex flex-col justify-center text-white pb-5 scroll-mt-28"
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}

@@ -1,12 +1,27 @@
+"use client"
 import Link from "next/link";
 import { Shapes } from "./Shapes";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
+import { useActiveSectionContext } from "@/context/active-section-context";
 
 export default function Intro() {
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
+  const { setActiveSection } = useActiveSectionContext();
+
+  useEffect(() => {
+    if(inView){
+      setActiveSection("Home");
+    }
+  }, [inView, setActiveSection])
+
   return (
-    <section>
+    <section ref={ref} id="home">
       <div
         className="flex flex-col-reverse mt-15 sm:pt-10 sm:mb-4 w-full justify-between sm:h-lvh sm:flex-row scroll-mt-28"
         id="home"

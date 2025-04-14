@@ -4,6 +4,7 @@ import { Analytics} from "@vercel/analytics/react";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ActiveSectionContextProvider from "@/context/active-section-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,10 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <body className={`${inter.className}`}>
+        <ActiveSectionContextProvider>
         <Header />
         {children}
         <Footer />
         <Analytics />
+        </ActiveSectionContextProvider>
       </body>
     </html>
   );

@@ -5,6 +5,7 @@ import brainwave from "@/public/brainwave.png";
 import lightAi from "@/public/light-ai-landingpage.png";
 import mediso from "@/public/mediso.png"
 import blogify from "@/public/blogify.png"
+import techWave from "@/public/Tech-Wave.png"
 
 export const links = [
   {
@@ -34,6 +35,13 @@ export const links = [
 ] as const;
 
 export const projectsData = [
+  {
+    title: "Tech Wave",
+    description: "Tech Wave is a high-performance e-commerce platform which delivers a seamless and scalable shopping experience.",
+    tags: ["tRPC","Nextjs", "GSAP" , "TanStack query","Typescript","Zustand", "Nextauth"],
+    imageUrl: techWave,
+    link: "https://next-ecom-lake.vercel.app/",
+  },
   {
     title: "Mediso",
     description: "A platform for patients to share concerns, upvote issues, and connect with doctors for personalized support.",

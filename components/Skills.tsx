@@ -1,10 +1,12 @@
 "use client";
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { MdCircle } from "react-icons/md";
 import { skillsData } from "@/lib/data";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useActiveSectionContext } from "@/context/active-section-context";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -42,7 +44,15 @@ const skillNames = [
 ];
 
 export default function Skills() {
-  const component = useRef(null);
+      const { ref, inView } = useInView();
+      const { setActiveSection } = useActiveSectionContext();
+    
+      useEffect(() => {
+        if(inView){
+          setActiveSection("Skills");
+        }
+      }, [inView, setActiveSection])
+      const component = useRef<HTMLElement | null>(null);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -78,9 +88,12 @@ export default function Skills() {
   });
 
   return (
-    <div
+    <section
       className="py-7 overflow-x-hidden scroll-mt-40 "
-      ref={component}
+      ref={(el) => {
+        component.current = el;
+        ref(el);
+      }}
       id="skills"
     >
       <h2 className="text-5xl text-white flex justify-center font-lato pb-3">
@@ -129,6 +142,6 @@ export default function Skills() {
           </ul>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

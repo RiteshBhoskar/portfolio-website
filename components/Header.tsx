@@ -6,10 +6,11 @@ import { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import { Circle } from "rc-progress";
 import NumberFlow from "@number-flow/react";
+import { useActiveSectionContext } from "@/context/active-section-context";
 
 export default function Header() {
+  const { activeSection , setActiveSection } = useActiveSectionContext();
   const [isNavOpen , setIsNavOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("Home");
   const [scrollPercentage, setScrollPercentage] = useState(0);
   const [selected, setSelected] = useState("Nav");
   const sectionsRef = useRef<HTMLDivElement[]>([]);
@@ -30,29 +31,29 @@ export default function Header() {
 
 
 
-  useEffect(() => {
-    // IntersectionObserver to detect active section
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            const sectionName = entry.target.getAttribute("data-section");
-            if (sectionName) {
-              setActiveSection(sectionName);
-              setSelected(sectionName); // Dynamically change the Nav text
-            }
-          }
-        }
-      },
-      { threshold: 0.6 } // Adjust this threshold as needed
-    );
+  // useEffect(() => {
+  //   // IntersectionObserver to detect active section
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       for (const entry of entries) {
+  //         if (entry.isIntersecting) {
+  //           const sectionName = entry.target.getAttribute("data-section");
+  //           if (sectionName) {
+  //             setActiveSection(sectionName);
+  //             setSelected(sectionName); // Dynamically change the Nav text
+  //           }
+  //         }
+  //       }
+  //     },
+  //     { threshold: 0.6 } // Adjust this threshold as needed
+  //   );
 
-    sectionsRef.current.forEach((section) => observer.observe(section));
+  //   sectionsRef.current.forEach((section) => observer.observe(section));
 
-    return () => {
-      sectionsRef.current.forEach((section) => observer.unobserve(section));
-    };
-  }, []);
+  //   return () => {
+  //     sectionsRef.current.forEach((section) => observer.unobserve(section));
+  //   };
+  // }, []);
 
   return (
     <header className="z-[999] relative">
@@ -64,9 +65,9 @@ export default function Header() {
         animate={{ y: 0, x: "-50%", opacity: 1 }}
       ></motion.div>
       <nav
-        className="hidden sm:block sm:fixed sm:left-1/2 sm:w-full -translate-x-1/2 sm:top-[1.7rem] sm:h-12 sm:py-0"
+        className="hidden sm:block sm:fixed sm:left-1/2 sm:w-[36rem] -translate-x-1/2 sm:top-[1.7rem] sm:h-12 sm:py-0"
       >
-        <ul className="hidden sm:flex sm:w-full sm:items-center sm:justify-center h-fit sm:text-[0.9rem] font-lato font-medium text-cyan-300  sm:flex-nowrap sm:gap-5">
+        <ul className="hidden sm:flex sm:w-full sm:items-center sm:justify-between px-1 h-fit sm:text-[0.9rem] font-lato font-medium text-cyan-300  sm:flex-nowrap">
           {links.map((link) => (
             <motion.li
               key={link.hash}
@@ -76,15 +77,25 @@ export default function Header() {
             >
               <Link
                 className={clsx(
-                  `hidden sm:flex sm:w-full sm:items-center sm:justify-center sm:h-fit
-                               sm:px-3 sm:py-2 hover:text-white
-                                transition`,
+                  `hidden sm:relative sm:flex sm:w-full sm:items-center sm:justify-center sm:h-fit sm:px-3 sm:py-2 hover:text-white transition`,
                   { "text-white": activeSection === link.name }
                 )}
                 href={link.hash}
                 onClick={() => setActiveSection(link.name)}
               >
                 {link.name}
+
+                {link.name === activeSection && ( 
+                <motion.span className="bg-gray-300 rounded-full bg-opacity-50 absolute inset-0 -z-10 w-full" layoutId="activeSection"
+                transition={{
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 30,
+                }}
+                >
+                </motion.span>
+                  )
+                }
               </Link>
             </motion.li>
           ))}
