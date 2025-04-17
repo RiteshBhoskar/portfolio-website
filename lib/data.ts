@@ -6,6 +6,7 @@ import lightAi from "@/public/light-ai-landingpage.png";
 import mediso from "@/public/mediso.png"
 import blogify from "@/public/blogify.png"
 import techWave from "@/public/Tech-Wave.png"
+import portz from "@/public/portz.png";
 
 export const links = [
   {
@@ -35,6 +36,13 @@ export const links = [
 ] as const;
 
 export const projectsData = [
+  {
+    title: "Portz",
+    description: "Agency and Portfolio template designed to showcase your agency's or portfolio's. Ideal for creative designers, personal portfolios.",
+    tags: ["Nextjs", "GSAP" , "Typescript" , "Vercel", "TailwindCSS V4"],
+    imageUrl: portz,
+    link: "https://portz-three.vercel.app/",
+  },
   {
     title: "Tech Wave",
     description: "Tech Wave is a high-performance e-commerce platform which delivers a seamless and scalable shopping experience.",

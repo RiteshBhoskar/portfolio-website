@@ -1,12 +1,12 @@
 "use client";
 import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import { links } from "@/lib/data";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { Circle } from "rc-progress";
 import NumberFlow from "@number-flow/react";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import Link from "next/link";
 
 export default function Navbar() {
   const { activeSection , setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
@@ -113,7 +113,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.2 }}
                 onClick={() => setIsNavOpen(!isNavOpen)}
                 className="font-thin font-mono text-lg text-white cursor-pointer flex justify-center"
               >
