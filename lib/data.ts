@@ -1,4 +1,4 @@
-
+import designCube from "@/public/design-cube.png";
 import appleImg from "@/public/apple.png";
 import mediumLike from "@/public/blog-app.png";
 import brainwave from "@/public/brainwave.png";
@@ -36,6 +36,13 @@ export const links = [
 ] as const;
 
 export const projectsData = [
+  {
+    title: "Design Cube",
+    description: "Designed for agencies, portfolios, and personal brands, DesignCube seamlessly blends minimalist aesthetics with dynamic animations.",
+    tags: ["Nextjs", "GSAP" , "Typescript" , "Vercel", "TailwindCSS V4"],
+    imageUrl: designCube,
+    link: "https://design-cube.vercel.app/",
+  },
   {
     title: "Portz",
     description: "Agency and Portfolio template designed to showcase your agency's or portfolio's. Ideal for creative designers, personal portfolios.",
