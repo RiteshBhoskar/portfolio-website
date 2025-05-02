@@ -7,6 +7,7 @@ import mediso from "@/public/mediso.png"
 import blogify from "@/public/blogify.png"
 import techWave from "@/public/Tech-Wave.png"
 import portz from "@/public/portz.png";
+import infinite from "@/public/infinite.png";
 
 export const links = [
   {
@@ -36,6 +37,13 @@ export const links = [
 ] as const;
 
 export const projectsData = [
+  {
+    title: "Infinite",
+    description: "Infinite is a clear and structured template, Offering a rich, detailed and versatile design, making it perfect for your studio.",
+    tags: ["Nextjs", "GSAP" , "Typescript" , "Vercel","Framer", "TailwindCSS V4"],
+    imageUrl: infinite,
+    link: "https://infinite-omega.vercel.app/",
+  },
   {
     title: "Design Cube",
     description: "Designed for agencies, portfolios, and personal brands, DesignCube seamlessly blends minimalist aesthetics with dynamic animations.",
@@ -118,7 +126,8 @@ export const skillsData = [
   "Prisma",
   "MongoDB",
   "Docker",
-  "GraphQL",
+  "AWS",
+  "Redis",
   "Express",
   "PostgreSQL",
   "Kubernetes",

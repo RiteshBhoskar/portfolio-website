@@ -41,6 +41,7 @@ export default function Intro() {
               href="/resume.pdf"
               title="download my resume"
               role="button"
+              download="Ritesh_Bhoskar_Resume.pdf"
               className="border-white border-2 text-white px-7 py-3 flex items-center justify-center gap-2 rounded-full
                             font-lato"
             >
